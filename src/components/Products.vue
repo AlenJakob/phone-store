@@ -37,7 +37,8 @@ export default {
       show: false,
       colorId: 1000,
       sizeId: 1100,
-      productId: 1
+      productId: 1,
+      msgSuccess: 1000
     };
   },
   methods: {
@@ -46,7 +47,7 @@ export default {
     },
     successMsg() {
       this.show = true;
-      setTimeout(this.clearMsg, 1000);
+      setTimeout(this.clearMsg, this.msgSuccess);
     },
     pickColor(event) {
       this.colorId = event.target.value;

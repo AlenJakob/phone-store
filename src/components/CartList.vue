@@ -11,11 +11,18 @@
     </ul>
     <h2>Total</h2>
     <div>{{totalVal.toFixed(2)}}</div>
+    <div>
+      <UserForm />
+    </div>
   </div>
 </template>
 
 <script>
+import UserForm from "./UserForm";
 export default {
+  components: {
+    UserForm
+  },
   data() {
     return {};
   },
