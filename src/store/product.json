@@ -93,5 +93,55 @@
 				]
 			}
 		]
+	},
+	{
+		"id": 3,
+		"name": "Xiaomi Mi a1",
+		"price": 159.99,
+		"oldPrice": 499.00,
+		"options": [
+			{
+				"id": 102,
+				"name": "Color",
+				"values": [
+					{
+						"id": 1003,
+						"name": "Silver",
+						"priceModifier": 0
+					},
+					{
+						"id": 1003,
+						"name": "Space Gray",
+						"priceModifier": 0
+					},
+					{
+						"id": 1004,
+						"name": "Gold",
+						"priceModifier": 0
+					},
+					{
+						"id": 1005,
+						"name": "Red",
+						"priceModifier": 10.00
+					}
+				]
+			},
+			{
+				"id": 102,
+				"name": "Capacity",
+				"values": [
+					{
+						"id": 1200,
+						"name": "64 GB",
+						"priceModifier": 0
+					},
+					{
+						"id": 1201,
+						"name": "256 GB",
+						"priceModifier": 40.00
+					}
+				]
+			}
+		]
 	}
 ]
