@@ -1,8 +1,8 @@
 <template>
   <div class="product_cart">
-    <router-link to="/shopingCart">
-      <img class="img_cart" src="../img/cart.png" alt />
+    <router-link class="shoping_cart" to="/shopingCart">
       <b class="amount_cart">{{this.$store.state.productCart.length}}</b>
+      <img class="img_cart" src="../img/cart.png" alt />
     </router-link>
   </div>
 </template>
@@ -11,10 +11,17 @@
 </script>
 
 <style>
+.amount_cart {
+  transform: translate(5px, 10px);
+}
+.shoping_cart {
+  display: flex;
+  flex-direction: column;
+}
 .product_cart {
-  position: relative;
-  margin:2rem;
-  height:2rem;
+  position: absolute;
+  top: 1rem;
+  right: 6rem;
 }
 .product_cart a {
   position: absolute;
@@ -22,9 +29,8 @@
   height: 50px !important;
   border-radius: 50%;
   color: red;
-  font-size:1.5rem;
+  font-size: 1.5rem;
   text-decoration: none;
-  left:0;
   display: flex;
   justify-content: center;
   align-items: center;

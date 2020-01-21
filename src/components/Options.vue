@@ -25,18 +25,12 @@ export default {
     }
   },
   mounted() {
-    // this.$store.state.products.forEach(e => console.log(e));
-    // console.log("test", this.products);
     console.log("option component test");
   },
   computed: {
     productsOptions() {
       return this.$store.state.products;
     }
-    // ,
-    // productsOptions() {
-    //   return this.$store.state.products.map(e => e);
-    // }
   }
 };
 </script>

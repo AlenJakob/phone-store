@@ -11,19 +11,32 @@ export default new Vuex.Store({
     LOAD_PRODUCTS(state, products) {
       state.products = products;
     },
+    // ADD_PRODUCT(state, productName) {
+    //   state.productCart = [...state.productCart, productName]
+    // },
     ADD_PRODUCT(state, productName) {
-      state.productCart.push(productName)
+      state.productCart = [...state.productCart, productName]
     }
   },
   actions: {
-    loadProducts({ commit }) {
-      console.log("loadProducts function")
-      axios
-        .get("https://api.myjson.com/bins/juce4")
-        .then(result => { commit('LOAD_PRODUCTS', result.data); console.log(result.data) })
+    async loadProducts({ commit }) {
+      await axios
+        // .get("https://api.myjson.com/bins/juce4")
+        .get("https://api.myjson.com/bins/a7dky")
+        .then(result => { commit('LOAD_PRODUCTS', result.data); })
         .catch(error => {
           throw new Error(`API ${error}`);
         });
+
+    }
+  },
+  getters: {
+    TotalVal: state => {
+      return state.productCart
+        .map(e => e[0].price)
+        .reduce((a, b) => {
+          return a + b;
+        }, 0);
     }
   },
   modules: {}

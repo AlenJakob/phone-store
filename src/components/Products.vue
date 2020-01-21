@@ -12,18 +12,10 @@
         <img class="product_img" src="../img/product.png" alt="product image" />
         <h3>{{product.name }}</h3>
         <div class="select_options">
-          <select @change="pickColor">
-            <option v-for="color in product.options[0].values" :key="color.id">{{color.name }}</option>
-          </select>
-          <select @change="pickSize">
-            <option
-              v-for="size in product.options[1].values"
-              :key="size.id"
-              :value="size.id"
-            >{{size.name}}</option>
-          </select>
+          <div>
+            <ProductOption  :productID="product.id" :productDetails="product" />
+          </div>
         </div>
-        <!-- <button class="product_btn" @click="addProduct(product)">Add to cart</button> -->
         <button class="product_btn" @click="addProductToCart(product)">addProductToCart</button>
       </li>
     </ul>
@@ -31,13 +23,18 @@
 </template>
 
 <script>
+import ProductOption from "../components/ProductOption";
 export default {
+  components: {
+    ProductOption
+  },
   data() {
     return {
       show: false,
       colorId: 1000,
       sizeId: 1100,
-      productId: 1,
+      productID: 0,
+      productDetails: null,
       msgSuccess: 1000
     };
   },
@@ -61,6 +58,8 @@ export default {
       const productItem = this.$store.state.products.filter(
         prod => prod.id === product.id
       );
+      productItem.option = {};
+      console.log(productItem);
       this.$store.commit("ADD_PRODUCT", productItem);
       this.successMsg();
     }
@@ -69,20 +68,21 @@ export default {
     productName() {
       return this.$store.state.products.map(product => product);
     }
-  },
-  mounted() {}
+  }
 };
 </script>
 
 <style>
 .msg-box {
   top: 0;
-  position: absolute;
+  position: fixed;
   background: greenyellow;
   padding: 1rem;
 }
 .product_list {
   display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .product_price-list {
   display: flex;
@@ -100,7 +100,7 @@ export default {
 
 .product_details {
   list-style: none;
-  max-width: 200px;
+  width: calc(960px - 5%);
   border-radius: 0.5rem;
   box-shadow: 0 0 2rem rgb(207, 207, 207);
 }

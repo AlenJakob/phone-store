@@ -15,11 +15,9 @@
       <input type="text" placeholder="city" v-model="address.city" />
 
       <input type="text" placeholder="postcode" v-model="address.postCode" />
-      <!-- <button class="form_submit" @click.prevent="ConfirmOrder">confirm</button> -->
       <input type="submit" @click.prevent="ConfirmOrder" />
     </form>
     <ul>
-      <!-- <li v-for="item in address" :key="item.id">{{item}}</li> -->
     </ul>
   </div>
 </template>
@@ -56,9 +54,6 @@ export default {
       user.product = this.$store.state.productCart[0][0];
       console.log(user);
     }
-  },
-  mounted() {
-    // console.log(this.$store.state.productCart);
   }
 };
 </script>
@@ -94,10 +89,10 @@ export default {
 }
 .form_user input:focus {
   outline: none;
-  border-bottom: 1px solid red;
+  border-bottom: 1px solid rgb(0, 180, 45);
 }
 .form_user input:hover {
   outline: none;
-  background: rgba(15, 197, 24, 0.2);
+  background: rgba(15, 197, 24, 0.1);
 }
 </style>

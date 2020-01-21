@@ -10,7 +10,8 @@
       </li>
     </ul>
     <h2>Total</h2>
-    <div>{{totalVal.toFixed(2)}}</div>
+    <div>Total Price: {{this.$store.getters.TotalVal.toFixed(2)}}</div>
+
     <div>
       <UserForm />
     </div>
@@ -28,13 +29,12 @@ export default {
   },
   methods: {},
   computed: {
-    totalVal() {
-      return this.$store.state.productCart
-        .map(e => e[0].price)
-        .reduce((a, b) => {
-          return a + b;
-        }, 0);
+    data() {
+      return "5555555555";
     }
+  },
+  mounted() {
+    console.log("Sa");
   }
 };
 </script>
