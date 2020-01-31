@@ -173,6 +173,7 @@ export default {
   border-radius: 5px;
 }
 .product_list {
+  margin-top: 8rem;
   display: flex;
   flex-direction: column;
   align-items: center;

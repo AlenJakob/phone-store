@@ -1,11 +1,8 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <Cart />
-      <router-link to="/">Store</router-link>
-      <router-link to="/about">Retour</router-link>
-      <router-link to="#">Contact</router-link>
-    </div>
+    <Navigation id="nav" />
+
+    <Cart />
 
     <transition name="fade">
       <router-view />
@@ -15,9 +12,11 @@
 
 <script>
 import Cart from "./components/Cart";
+import Navigation from "./components/Navigation";
 export default {
   components: {
-    Cart
+    Cart,
+    Navigation
   }
 };
 </script>
@@ -29,32 +28,19 @@ export default {
 body {
   box-sizing: border-box;
   overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 }
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: subpixel-antialiased !important;
   text-align: center;
   color: #2c3e50;
 }
-#nav {
-  padding: 30px;
-}
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-  text-decoration: none;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-#nav a {
-  margin: 0.5rem;
-}
 ul {
   padding: 0;
 }

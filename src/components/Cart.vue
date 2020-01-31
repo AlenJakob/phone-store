@@ -12,7 +12,13 @@
 
 <style>
 .amount_cart {
-  transform: translate(5px, 10px);
+  border: 1px solid #4f96be;
+  background: #fff;
+  width: 30px;
+  height: 30px;
+  padding: 0.3rem;
+  border-radius: 50%;
+  transform: translate(15px, 25px);
 }
 .shoping_cart {
   display: flex;
@@ -28,7 +34,7 @@
   width: 50px !important;
   height: 50px !important;
   border-radius: 50%;
-  color: red;
+  color: #59bad9;
   font-size: 1.5rem;
   text-decoration: none;
   display: flex;
