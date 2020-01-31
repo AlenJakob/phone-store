@@ -103,14 +103,11 @@ export default {
     },
     addProductToCart(product) {
       this.productID = product.id;
-      console.log("ID", this.productID);
       const productItem = this.$store.state.products.filter(
         prod => prod.id === product.id
       );
       productItem.id = product.id;
       productItem.option = [{ color: this.colorId, capacity: this.sizeId }];
-      console.log(productItem);
-      console.log(this.productDetails);
       this.$store.commit("ADD_PRODUCT", productItem);
       this.successMsg();
     }

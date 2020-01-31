@@ -9,8 +9,7 @@
           :key="prodColor.id"
           id="product_ID"
           :value="prodColor.id"
-          >{{ prodColor.name }}</option
-        >
+        >{{ prodColor.name }}</option>
       </select>
     </div>
     <div class="product_opt_spec">
@@ -20,8 +19,7 @@
           v-for="prodCapacity in productDetails.options[1].values"
           :key="prodCapacity.id"
           :value="prodCapacity.name"
-          >{{ prodCapacity.name }}</option
-        >
+        >{{ prodCapacity.name }}</option>
       </select>
     </div>
   </div>
@@ -43,19 +41,9 @@ export default {
   methods: {
     getColorID(e) {
       this.prodDetails.colorID = e.target.value;
-      console.log(this.prodDetails.colorID);
     },
     getCapacityID(e) {
-      console.log(this.prodDetails.capacityID);
       this.prodDetails.capacityID = e.target.value;
-    },
-    test() {
-      console.log(
-        "this is color ",
-        this.prodDetails.colorID,
-        "and this is capacity",
-        this.productDetails.capacityID
-      );
     }
   },
   computed: {
@@ -63,7 +51,6 @@ export default {
       let id = this.productID - 1;
       let prodID = this.$store.state.products[id];
       let prodValues = Object.values(prodID);
-      console.log("SSS", prodValues[4][0].values);
       return prodValues[4][0].values;
     },
     getProductCapacity() {

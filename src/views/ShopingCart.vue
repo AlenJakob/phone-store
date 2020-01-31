@@ -1,7 +1,7 @@
 <template>
   <div class="shopingCart">
     <router-link to="/">
-      <h4> back to Store</h4>
+      <h4>back to Store</h4>
     </router-link>
     <CartList />
   </div>

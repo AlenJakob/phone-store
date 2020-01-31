@@ -54,9 +54,7 @@ export default {
       user.products = [
         ...this.$store.state.productCart.map(product => product[0])
       ];
-      console.log([
-        ...this.$store.state.productCart.map(product => product[0])
-      ]);
+
       console.log(user);
     }
   }
