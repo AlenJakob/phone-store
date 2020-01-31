@@ -50,7 +50,6 @@ export default {
           postCode: this.address.postCode
         }
       };
-      // user.products = this.$store.state.productCart[0][0];
       user.products = [
         ...this.$store.state.productCart.map(product => product[0])
       ];
