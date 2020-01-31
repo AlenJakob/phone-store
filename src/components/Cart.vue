@@ -19,7 +19,7 @@
   flex-direction: column;
 }
 .product_cart {
-  position: absolute;
+  position: fixed;
   top: 1rem;
   right: 6rem;
 }

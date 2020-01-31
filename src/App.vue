@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <div id="nav"><Cart />
+    <div id="nav">
+      <Cart />
       <router-link to="/">Store</router-link>
       <router-link to="/about">Retour</router-link>
       <router-link to="#">Contact</router-link>
-      
     </div>
 
     <transition name="fade">
@@ -23,7 +23,10 @@ export default {
 </script>
 
 <style>
-body{
+* {
+  transition: 0.3s;
+}
+body {
   box-sizing: border-box;
   overflow-x: hidden;
 }
@@ -31,7 +34,7 @@ body{
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: subpixel-antialiased !important;
   text-align: center;
   color: #2c3e50;

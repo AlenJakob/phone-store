@@ -14,7 +14,8 @@ export default new Vuex.Store({
     // ADD_PRODUCT(state, productName) {
     //   state.productCart = [...state.productCart, productName]
     // },
-    ADD_PRODUCT(state, productName) {
+    ADD_PRODUCT(state, productName, productOption) {
+      console.log(productOption)
       state.productCart = [...state.productCart, productName]
     }
   },

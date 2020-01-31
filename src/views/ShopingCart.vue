@@ -3,7 +3,6 @@
     <router-link to="/">
       <h4> back to Store</h4>
     </router-link>
-    
     <CartList />
   </div>
 </template>
