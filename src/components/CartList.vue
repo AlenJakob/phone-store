@@ -1,5 +1,17 @@
 <template>
   <div class="product_cart-list">
+    <div class="product_cart-info">
+      <h3>Cart subtotal</h3>
+      <p>
+        products
+        (
+        <b>{{this.$store.state.productCart.length}}</b>)
+      </p>
+      <div>
+        Total Price:
+        <b>{{this.$store.getters.TotalVal.toFixed(2)}} $</b>
+      </div>
+    </div>
     <ul class="products_list-order">
       <li
         class="product_item"
@@ -13,8 +25,7 @@
         </span>
       </li>
     </ul>
-    <h2>Total</h2>
-    <div>Total Price: {{this.$store.getters.TotalVal.toFixed(2)}}</div>
+
     <div>
       <UserForm />
     </div>

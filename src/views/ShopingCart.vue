@@ -24,7 +24,7 @@ export default {
   margin: 0 auto;
 }
 .back-btn {
-  width: 180px;
+  width: 160px;
   padding: 0.4rem;
   border-radius: 5px;
   border: 1px solid rgba(47, 79, 79, 0.212);

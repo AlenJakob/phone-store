@@ -1,6 +1,5 @@
 <template>
   <div class="form_container">
-    <h4>user form</h4>
     <form class="form_user">
       <input type="text" placeholder="name" v-model="name" />
 
@@ -15,9 +14,8 @@
       <input type="text" placeholder="city" v-model="address.city" />
 
       <input type="text" placeholder="postcode" v-model="address.postCode" />
-      <input type="submit" @click.prevent="ConfirmOrder" />
+      <button class="confirm_btn" type="submit" @click.prevent="ConfirmOrder">Confirm Order</button>
     </form>
-    <ul></ul>
   </div>
 </template>
 
@@ -66,35 +64,45 @@ export default {
   border-radius: 5px;
   margin: 5rem auto;
   box-shadow: 0 0 0.5rem lightgrey;
-  max-width: 300px;
+  max-width: 370px;
   width: 100%;
   display: flex;
   flex-direction: column;
 }
 .form_user input {
   margin: 0.8rem;
-  padding: 0.5rem;
+  padding: 1rem 0;
   width: 100%;
-  max-width: 250px;
+  max-width: 350px;
   border: none;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.192);
   transition: 0.5s;
   cursor: pointer;
 }
-.form_user input:last-child {
-  cursor: pointer;
-  border: none;
-  border: 1px solid darkgray;
-}
-.form_user input:hover:last-child {
-  background: lightgrey;
-}
+
 .form_user input:focus {
   outline: none;
-  border-bottom: 1px solid rgb(0, 180, 45);
+  border-bottom: 1px solid rgba(0, 180, 45, 0.281);
 }
 .form_user input:hover {
   outline: none;
-  background: rgba(15, 197, 24, 0.1);
+  background: rgba(166, 233, 222, 0.1);
+}
+.confirm_btn {
+  background: none;
+  margin: 3rem auto;
+  padding: 1rem 2rem;
+  list-style: none;
+  color: rgb(8, 58, 17);
+  cursor: pointer;
+  font-weight: bold;
+  width: 160px;
+  border-radius: 5px;
+  border: none;
+  border: 1px solid rgba(47, 79, 79, 0.212);
+  outline: none;
+}
+.confirm_btn:hover {
+  border: 1px solid rgba(47, 79, 79, 1);
 }
 </style>
