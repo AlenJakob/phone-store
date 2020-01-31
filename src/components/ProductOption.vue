@@ -9,7 +9,8 @@
           :key="prodColor.id"
           id="product_ID"
           :value="prodColor.id"
-        >{{prodColor.name}}</option>
+          >{{ prodColor.name }}</option
+        >
       </select>
     </div>
     <div class="product_opt_spec">
@@ -19,7 +20,8 @@
           v-for="prodCapacity in productDetails.options[1].values"
           :key="prodCapacity.id"
           :value="prodCapacity.name"
-        >{{prodCapacity.name}}</option>
+          >{{ prodCapacity.name }}</option
+        >
       </select>
     </div>
   </div>
@@ -35,7 +37,7 @@ export default {
     return {
       DataID: this.productID,
       getColorValue: document.querySelector("#product_ID"),
-      prodDetails:  { colorID: "1000", capacityID: "1100" }
+      prodDetails: { colorID: "1000", capacityID: "1100" }
     };
   },
   methods: {
@@ -71,14 +73,11 @@ export default {
       return prodValues[4][1].values;
     }
   },
-  mounted() {
-    
-     
-  }
+  mounted() {}
 };
 </script>
 
-<style >
+<style>
 option {
   cursor: pointer;
   cursor: hand;

@@ -1,7 +1,11 @@
 <template>
   <div class="product_cart-list">
     <ul class="products_list-order">
-      <li class="product_item" v-for="prod in this.$store.state.productCart" :key="prod.id">
+      <li
+        class="product_item"
+        v-for="prod in this.$store.state.productCart"
+        :key="Math.random(prod.id)"
+      >
         <span>{{prod[0].name}}</span>
         <span>
           <b>{{prod[0].price}} $</b>
@@ -22,18 +26,6 @@ import UserForm from "./UserForm";
 export default {
   components: {
     UserForm
-  },
-  data() {
-    return {};
-  },
-  methods: {},
-  computed: {
-    data() {
-      return "5555555555";
-    }
-  },
-  mounted() {
-    console.log("Sa");
   }
 };
 </script>

@@ -5,30 +5,28 @@ Vue.use(Vuex, axios);
 export default new Vuex.Store({
   state: {
     products: [],
-    productCart: []
+    productCart: [],
+    getProducts: "https://api.myjson.com/bins/a7dky"
   },
   mutations: {
     LOAD_PRODUCTS(state, products) {
       state.products = products;
     },
-    // ADD_PRODUCT(state, productName) {
-    //   state.productCart = [...state.productCart, productName]
-    // },
-    ADD_PRODUCT(state, productName, productOption) {
-      console.log(productOption)
-      state.productCart = [...state.productCart, productName]
+    ADD_PRODUCT(state, productName) {
+      state.productCart = [...state.productCart, productName];
     }
   },
   actions: {
     async loadProducts({ commit }) {
       await axios
         // .get("https://api.myjson.com/bins/juce4")
-        .get("https://api.myjson.com/bins/a7dky")
-        .then(result => { commit('LOAD_PRODUCTS', result.data); })
+        .get(this.state.getProducts)
+        .then(result => {
+          commit("LOAD_PRODUCTS", result.data);
+        })
         .catch(error => {
           throw new Error(`API ${error}`);
         });
-
     }
   },
   getters: {
@@ -42,5 +40,3 @@ export default new Vuex.Store({
   },
   modules: {}
 });
-
-

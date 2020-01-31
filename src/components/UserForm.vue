@@ -17,8 +17,7 @@
       <input type="text" placeholder="postcode" v-model="address.postCode" />
       <input type="submit" @click.prevent="ConfirmOrder" />
     </form>
-    <ul>
-    </ul>
+    <ul></ul>
   </div>
 </template>
 
@@ -51,7 +50,13 @@ export default {
           postCode: this.address.postCode
         }
       };
-      user.product = this.$store.state.productCart[0][0];
+      // user.products = this.$store.state.productCart[0][0];
+      user.products = [
+        ...this.$store.state.productCart.map(product => product[0])
+      ];
+      console.log([
+        ...this.$store.state.productCart.map(product => product[0])
+      ]);
       console.log(user);
     }
   }

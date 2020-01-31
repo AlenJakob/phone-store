@@ -36,7 +36,7 @@
         <div class="product_left_side">
           <img class="product_img" src="../img/product.png" alt="product image" />
           <div class="product_spec">
-            <h3 class="product_title">{{product.name }}</h3>
+            <h3 class="product_title">{{ product.name }}</h3>
             <ul class="product_spec-list">
               <li>
                 Screen:
