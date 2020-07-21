@@ -60,7 +60,6 @@ export default {
       return prodValues[4][1].values;
     }
   },
-  mounted() {}
 };
 </script>
 
