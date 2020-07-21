@@ -19,7 +19,6 @@ export default new Vuex.Store({
   actions: {
     async loadProducts({ commit }) {
       await axios
-        // .get("https://api.myjson.com/bins/juce4")
         .get(this.state.getProducts)
         .then(result => {
           commit("LOAD_PRODUCTS", result.data);
