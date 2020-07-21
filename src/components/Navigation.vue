@@ -11,8 +11,7 @@
 export default {
   methods: {
     handleScroll() {
-      // eslint-disable-next-line no-unused-vars
-      var el = document.querySelector("body");
+      let el = document.querySelector("body");
       console.log("el");
     }
   }
