@@ -36,7 +36,6 @@ export default {
   },
   methods: {
     ConfirmOrder() {
-      console.log("The order have been Received");
       const user = {
         name: this.name,
         surname: this.surname,
@@ -52,7 +51,6 @@ export default {
         ...this.$store.state.productCart.map(product => product[0])
       ];
 
-      console.log(user);
     }
   }
 };
