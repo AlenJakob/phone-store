@@ -1,81 +1,99 @@
 <template>
   <div class="product_item">
-    <div v-if="show" class="msg-box">
-      <svg
-        class="thumb_ico"
-        aria-hidden="true"
-        focusable="false"
-        width="1em"
-        height="1em"
-        preserveAspectRatio="xMidYMid meet"
-        viewBox="0 0 8 8"
-      >
-        <path
-          d="M4.47 0C4.28.02 4.1.15 4 .34C3.87.6 2.91 2.53 2.72 2.72C2.53 2.91 2.28 3 2 3v4h3.5c.21 0 .39-.13.47-.31C5.97 6.69 7 3.78 7 3.5c0-.28-.22-.5-.5-.5H5c-.28 0-.5-.25-.5-.5S4.89.92 4.97.66a.504.504 0 0 0-.31-.63C4.59.01 4.54-.01 4.47 0zM0 3v4h1V3H0z"
-          fill="darkgreen"
-        />
-      </svg>
-      Product has been added to cart
-      <svg
-        class="cart_ico"
-        aria-hidden="true"
-        focusable="false"
-        width="1.13em"
-        height="1em"
-        preserveAspectRatio="xMidYMid meet"
-        viewBox="0 0 576 512"
-      >
-        <path
-          d="M528.12 301.319l47.273-208C578.806 78.301 567.391 64 551.99 64H159.208l-9.166-44.81C147.758 8.021 137.93 0 126.529 0H24C10.745 0 0 10.745 0 24v16c0 13.255 10.745 24 24 24h69.883l70.248 343.435C147.325 417.1 136 435.222 136 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-15.674-6.447-29.835-16.824-40h209.647C430.447 426.165 424 440.326 424 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-22.172-12.888-41.332-31.579-50.405l5.517-24.276c3.413-15.018-8.002-29.319-23.403-29.319H218.117l-6.545-32h293.145c11.206 0 20.92-7.754 23.403-18.681z"
-          fill="green"
-        />
-      </svg>
-    </div>
-    <ul class="product_list">
-      <li class="product_details" v-for="product in productName" :key="product.id">
-        <div class="product_left_side">
-          <img class="product_img" src="../img/product.png" alt="product image" />
-          <div class="product_spec">
-            <h3 class="product_title">{{ product.name }}</h3>
-            <ul class="product_spec-list">
-              <li>
-                Screen:
-                <b>6.0</b>
-              </li>
-              <li>
-                Procesor:
-                <b>Apple A10</b>
-              </li>
-              <li>
-                Memmory
-                <b>128GB</b>
-              </li>
-              <li>
-                Sysytem
-                <b>IOS</b>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="product_right_side">
-          <span class="product_price-list">
-            <h3 class="product_price">{{product.price + "$"}}</h3>
-            <h5 class="product_price product_price-old">{{product.oldPrice + "$" }}</h5>
-          </span>
-          <ProductOption :productID="product.id" :productDetails="product" />
+    <Message :show="show" />
 
-          <button class="product_btn" @click="addProductToCart(product)">Add To Cart</button>
+    <!-- ---------------------------- -->
+
+    <div class="py-2 bg-gray-50 grid lg:grid-cols-2 md:grid-cols-1 gap-10">
+      <div
+        class="w-3/2 bg-gray-200 overflow-hidden rounded-xl"
+        v-for="(product, i) in productName"
+        :key="i"
+      >
+        <div class="flex">
+          <div class="flex-none w-48 relative">
+            <img
+              :src="product.img"
+              alt=""
+              class="absolute inset-0 w-full h-full object-cover"
+            />
+          </div>
+          <form class="flex-auto p-6">
+            <div class="flex flex-wrap">
+              <h1
+                class="text-blue-800 font-bold flex-auto text-xl font-semibold"
+              >
+                {{ product.name }}
+              </h1>
+              <ProductInfo />
+              <div class="text-xl font-semibold text-gray-500">
+                €{{ product.price }}
+              </div>
+              <div
+                class="w-full flex-none text-sm font-medium text-gray-500 mt-2"
+              >
+                In stock
+              </div>
+            </div>
+            <p class="mt-4 text-sm text-gray-500">
+              Free shipping on all continental US orders.
+            </p>
+            <div class="flex items-baseline mt-4 mb-6">
+              <div class="space-x-2 flex">
+                <label>
+                  <ProductOption
+                    :productID="product.id"
+                    :productDetails="product"
+                  />
+                </label>
+              </div>
+              <div class="ml-auto text-xs underline">Voir plus</div>
+            </div>
+            <div class="flex space-x-3 mb-4 text-sm font-medium">
+              <div class="flex-auto flex space-x-3">
+                <button
+                  class="uppercase text-xs font-bold w-1/2 flex items-center justify-center rounded-full bg-blue-400 text-white"
+                  type="button"
+                  @click.stop="addProductToCart(product)"
+                >
+                  add to cart
+                </button>
+              </div>
+              <button
+                class="flex-none flex items-center justify-center w-9 h-9 rounded-md text-gray-400 border border-red-300 hover:animate-ping"
+                type="button"
+                aria-label="like"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  class="fill-current text-red-300"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </form>
         </div>
-      </li>
-    </ul>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import ProductInfo from "../components/ProductInfo";
 import ProductOption from "../components/ProductOption";
+import Message from "./Message";
 export default {
   components: {
-    ProductOption
+    ProductOption,
+    ProductInfo,
+    Message,
   },
   data() {
     return {
@@ -84,7 +102,7 @@ export default {
       sizeId: 1100,
       productID: 0,
       productDetails: null,
-      msgSuccess: 1000
+      msgSuccess: 1000,
     };
   },
   methods: {
@@ -104,19 +122,22 @@ export default {
     addProductToCart(product) {
       this.productID = product.id;
       const productItem = this.$store.state.products.filter(
-        prod => prod.id === product.id
+        (prod) => prod.id === product.id
       );
       productItem.id = product.id;
       productItem.option = [{ color: this.colorId, capacity: this.sizeId }];
       this.$store.commit("ADD_PRODUCT", productItem);
       this.successMsg();
-    }
+    },
   },
   computed: {
     productName() {
-      return this.$store.state.products.map(product => product);
-    }
-  }
+      return this.$store.state.products.map((product) => product);
+    },
+  },
+  mounted() {
+    console.log();
+  },
 };
 </script>
 
@@ -167,9 +188,7 @@ export default {
   z-index: 100;
   bottom: 2rem;
   position: fixed;
-  background: greenyellow;
   padding: 1rem;
-  border: 1px solid #a6ca8a;
   border-radius: 5px;
 }
 .product_list {

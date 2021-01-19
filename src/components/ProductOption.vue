@@ -5,21 +5,25 @@
       <select class="product_select" @change="getColorID($event)">
         <option>Pick Color</option>
         <option
-          v-for="prodColor in productDetails.options[0].values"
-          :key="prodColor.id"
+          v-for="(prodColor, i) in productDetails.options[0].values"
+          :key="i"
           id="product_ID"
           :value="prodColor.id"
-        >{{ prodColor.name }}</option>
+        >
+          {{ prodColor.name }}
+        </option>
       </select>
     </div>
     <div class="product_opt_spec">
       <span class="product_opt">Capacity:</span>
       <select class="product_select" @change="getCapacityID($event)">
         <option
-          v-for="prodCapacity in productDetails.options[1].values"
-          :key="prodCapacity.id"
+          v-for="(prodCapacity, id) in productDetails.options[1].values"
+          :key="id"
           :value="prodCapacity.name"
-        >{{ prodCapacity.name }}</option>
+        >
+          {{ prodCapacity.name }}
+        </option>
       </select>
     </div>
   </div>
@@ -29,13 +33,13 @@
 export default {
   props: {
     productID: Number,
-    productDetails: Object
+    productDetails: Object,
   },
   data() {
     return {
       DataID: this.productID,
       getColorValue: document.querySelector("#product_ID"),
-      prodDetails: { colorID: "1000", capacityID: "1100" }
+      prodDetails: { colorID: "1000", capacityID: "1100" },
     };
   },
   methods: {
@@ -44,7 +48,7 @@ export default {
     },
     getCapacityID(e) {
       this.prodDetails.capacityID = e.target.value;
-    }
+    },
   },
   computed: {
     getProductColor() {
@@ -58,7 +62,7 @@ export default {
       let prodID = this.$store.state.products[id];
       let prodValues = Object.values(prodID);
       return prodValues[4][1].values;
-    }
+    },
   },
 };
 </script>

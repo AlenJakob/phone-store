@@ -1,8 +1,6 @@
 <template>
   <div id="app">
-    <Navigation id="nav" />
-
-    <Cart />
+    <Navbar />
 
     <transition name="fade">
       <router-view />
@@ -11,13 +9,11 @@
 </template>
 
 <script>
-import Cart from "./components/Cart";
-import Navigation from "./components/Navigation";
+import Navbar from "./components/Navbar";
 export default {
   components: {
-    Cart,
-    Navigation
-  }
+    Navbar,
+  },
 };
 </script>
 

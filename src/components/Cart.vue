@@ -1,9 +1,18 @@
 <template>
-  <div class="product_cart">
-    <router-link class="shoping_cart" to="/shopingCart">
-      <b class="amount_cart">{{this.$store.state.productCart.length}}</b>
-      <img class="img_cart" src="../img/cart.png" alt />
-    </router-link>
+  <div class="">
+    <li class="nav-item">
+      <router-link
+        class="px-3 py-2 text-green-200 flex items-center text-md uppercase font-bold leading-snug hover:opacity-95 hover:text-white"
+        to="/shopingCart"
+      >
+        Shoping Cart<i class="fas fa-shopping-cart ml-2 text-white"></i>
+        <span class="ml-1 text-white">
+          (
+          <a> {{ this.$store.state.productCart.length }}</a>
+          )</span
+        >
+      </router-link>
+    </li>
   </div>
 </template>
 
@@ -11,37 +20,4 @@
 </script>
 
 <style>
-.amount_cart {
-  border: 1px solid #4f96be;
-  background: #fff;
-  width: 30px;
-  height: 30px;
-  padding: 0.3rem;
-  border-radius: 50%;
-  transform: translate(15px, 25px);
-}
-.shoping_cart {
-  display: flex;
-  flex-direction: column;
-}
-.product_cart {
-  position: fixed;
-  top: 1rem;
-  right: 6rem;
-}
-.product_cart a {
-  position: absolute;
-  width: 50px !important;
-  height: 50px !important;
-  border-radius: 50%;
-  color: #59bad9;
-  font-size: 1.5rem;
-  text-decoration: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.img_cart {
-  width: 50px;
-}
 </style>

@@ -1,34 +1,38 @@
 <template>
-  <div class="product_cart-list">
-    <div class="product_cart-info">
-      <h3>Cart subtotal</h3>
-      <p>
-        products
-        (
-        <b>{{this.$store.state.productCart.length}}</b>)
-      </p>
-      <div>
-        Total Price:
-        <b>{{this.$store.getters.TotalVal.toFixed(2)}} $</b>
+  <div>
+    <div class="bg-blue-50 py-6 px-6">
+      <div
+        class="border-l-4 border-red-400 -ml-6 pl-6 flex items-center justify-between my-4"
+      >
+        <div class="font-semibold text-gray-800">
+          Products ( {{ this.$store.state.productCart.length }} )
+        </div>
+        <div class="text-red-400">
+          <b>Total Price: {{ this.$store.getters.TotalVal.toFixed(2) }} €</b>
+        </div>
+      </div>
+      <hr class="-mx-6 divide-y divide-light-blue-400" />
+      <div
+        class="flex items-center justify-between my-6 py-6 border-b border-grey-darkest border-solid"
+        v-for="(prod, i) in this.$store.state.productCart"
+        :key="i"
+      >
+        <div class="w-24">
+          <img class="w-24 h-24" src="../img/product.png" />
+        </div>
+        <div class="flex-1 pl-2">
+          <div class="text-gray-700 font-semibold">{{ prod[0].name }}</div>
+          <div class="text-gray-600 font-thin">Web House</div>
+        </div>
+        <div class="text-red-400 font-semibold">
+          {{ prod[0].price }}€
+          <p class="line-through">{{ prod[0].oldPrice }}€</p>
+        </div>
       </div>
     </div>
-    <ul class="products_list-order">
-      <li
-        class="product_item"
-        v-for="prod in this.$store.state.productCart"
-        :key="Math.random(prod.id)"
-      >
-        <span>{{prod[0].name}}</span>
-        <span>
-          <b>{{prod[0].price}} $</b>
-          <s>{{prod[0].oldPrice}} $</s>
-        </span>
-      </li>
-    </ul>
+    <!--  -->
 
-    <div>
-      <UserForm />
-    </div>
+    <UserForm />
   </div>
 </template>
 
@@ -36,8 +40,8 @@
 import UserForm from "./UserForm";
 export default {
   components: {
-    UserForm
-  }
+    UserForm,
+  },
 };
 </script>
 
@@ -51,17 +55,22 @@ export default {
 }
 .product_item {
   color: #2a74b8;
+  color: #2a73b883;
   font-size: 16px;
   font-weight: 700;
   border-bottom: 1px solid #ebebeb;
-  padding: 4rem 0;
+  padding: 1rem 0;
+  text-align: left;
 }
 .product_item span {
   margin: 0.2rem;
   width: 100%;
 }
+.product_item span:after {
+  content: " -";
+}
 .product_item span:first-child {
-  text-align: center;
+  text-align: right;
 }
 .product_item span:last-child {
   color: #666;

@@ -4,6 +4,7 @@
 		"name": "iPhone 8",
 		"price": 99.99,
 		"oldPrice": 599.00,
+		"img": "https://assets.swappie.com/iPhone-8-Plus-gold-back.png",
 		"options": [
 			{
 				"id": 100,
@@ -49,6 +50,7 @@
 		"name": "iPhone 8 Plus",
 		"price": 129.99,
 		"oldPrice": 699.00,
+		"img": "https://st1.bgr.in/wp-content/uploads/2017/09/apple-iphone-8-plus-back.jpg",
 		"options": [
 			{
 				"id": 100,
@@ -99,6 +101,7 @@
 		"name": "Xiaomi Mi a1",
 		"price": 159.99,
 		"oldPrice": 499.00,
+		"img": "https://gloimg.gbtcdn.com/images/pdm-product-pic/Electronic/2017/11/27/source-img/20171127180441_31231.jpg",
 		"options": [
 			{
 				"id": 102,
@@ -144,5 +147,4 @@
 			}
 		]
 	},
-	
 ]
